@@ -87,11 +87,11 @@ jobs:
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
           # 编译K3固件:
-          #cat >> .config <<EOF
-          #CONFIG_TARGET_bcm53xx=y
-          #CONFIG_TARGET_bcm53xx_DEVICE_phicomm-k3=y
+          # cat >> .config <<EOF
+          # CONFIG_TARGET_bcm53xx=y
+          # CONFIG_TARGET_bcm53xx_DEVICE_phicomm-k3=y
           # CONFIG_TARGET_x86_64_Generic=y
-          EOF
+          # EOF
           # 固件压缩:
           # cat >> .config <<EOF
           # CONFIG_TARGET_IMAGES_GZIP=y
@@ -101,10 +101,10 @@ jobs:
           # CONFIG_EFI_IMAGES=y
           # EOF
           # IPv6支持:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-          CONFIG_PACKAGE_ipv6helper=y
-          EOF
+           cat >> .config <<EOF
+           CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+           CONFIG_PACKAGE_ipv6helper=y
+           EOF
           # 多文件系统支持:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_kmod-fs-nfs=y
