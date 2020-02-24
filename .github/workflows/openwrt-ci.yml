@@ -50,6 +50,12 @@ jobs:
           # ln -s /mnt/openwrt/feeds ./feeds
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
           df -h
+      - name: 自定义luci-theme
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/5728136cs/luci-theme-darkmatter.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -151,10 +157,11 @@ jobs:
           # CONFIG_PACKAGE_luci-app-wrtbwmon=y
           EOF
           # LuCI主题:
-          # cat >> .config <<EOF
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-theme-darkmatter=y
           # CONFIG_PACKAGE_luci-theme-argon=y
           # CONFIG_PACKAGE_luci-theme-netgear=y
-          # EOF
+          EOF
           # 常用软件包:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_curl=y
